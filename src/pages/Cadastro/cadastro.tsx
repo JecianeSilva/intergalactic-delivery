@@ -17,15 +17,22 @@ import {
 import { ModalAddress } from "../../components/ModalAddress/ModalAddress";
 import { Button } from "../../components/Button/Button";
 import { useState } from "react";
-import { MapPinLine } from "phosphor-react";
+import { MapPinLine, UserCircle } from "phosphor-react";
+import { FormUser, UserFormData, userFormSchema } from "../../components/Form/FormUser";
 
 function Cadastro() {
   const navigate = useNavigate();
   const [isTerra, setIsTerra] = useState(true);
 
   const {
+    setUser,
     setAddress,
   } = useUser();
+
+
+  const userForm = useForm<UserFormData>({
+    resolver: zodResolver(userFormSchema),
+  })
 
   const addressForm = useForm<AddressFormData>({
     resolver: zodResolver(addressFormSchema),
@@ -37,9 +44,10 @@ function Cadastro() {
   const { handleSubmit } = isTerra ? addressForm : addressForm2;
 
   function handleSubmitFormAddress(data: any) {
+    console.log(data);
     setAddress(data);
-    toast.success("Cadastro finalizado com sucesso.");
-    navigate("/");
+    // toast.success("Cadastro finalizado com sucesso.");
+    // navigate("/");
   }
 
   return (
@@ -49,6 +57,20 @@ function Cadastro() {
     >
       <ModalAddress title="">
         <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full">
+          <div>
+            <div className="flex gap-2">
+              <UserCircle size={28} className="text-blue-600 " />
+              <span className="font-bold text-gray-950">
+                Cadastro de usuário - Dados Pessoais
+              </span>
+            </div>
+            <p className="font-sans text-sm text-gray-500 ml-9">
+              Informe o endereço onde deseja receber seu pedido
+            </p>
+          </div>
+          <FormProvider {...userForm} >
+            <FormUser />
+          </FormProvider>
           <div className="flex justify-between">
             <div>
               <div className="flex gap-2">
@@ -76,18 +98,18 @@ function Cadastro() {
               </div>
             </div>
           </div>
-
+          {isTerra ?
+            <FormProvider {...addressForm}>
+              <FormAddress />
+            </FormProvider> :
+            <FormProvider {...addressForm2}>
+              <FormAddress2 />
+            </FormProvider>
+          }
         </div>
-        {isTerra ?
-          <FormProvider {...addressForm}>
-            <FormAddress />
-          </FormProvider> :
-          <FormProvider {...addressForm2}>
-            <FormAddress2 />
-          </FormProvider>
-        }
+
       </ModalAddress>
-      <div className="flex justify-end w-full mt-8">
+      <div className="flex justify-end w-full mt-8 mb-20">
         <div className="flex w-[40%] gap-8">
           <Button
             type="button"

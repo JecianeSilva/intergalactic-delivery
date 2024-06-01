@@ -27,7 +27,7 @@
 
 - [React](https://reactjs.org)
 - [Typescript](https://www.typescriptlang.org)
-- [Tailwindcss](tailwindcss.com)
+- [Tailwindcss](https://www.tailwindcss.com)
 - [React Hook Form](https://react-hook-form.com)
 - [Phosphor Icons](https://phosphoricons.com)
 - [Zod](https://zod.dev)

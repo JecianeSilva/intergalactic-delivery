@@ -4,12 +4,8 @@ import { Header } from "../../components/Header/header"
 
 function Home() {
   return (
-    <>
-      <Header></Header>
-      <main className="">
-
-      </main>
-    </>
+    <main className="h-full">
+    </main>
   )
 }
 

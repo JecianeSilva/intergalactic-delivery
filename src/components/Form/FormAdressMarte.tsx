@@ -4,8 +4,8 @@ import { useFormContext } from "react-hook-form";
 import { Input } from "../Input/input";
 
 export const addressFormSchema = zod.object({
-  lote: zod.string().min(4, "Informe o cep").max(4, "Informe o cep"),
-  complement: zod.string().nullable(),
+  lote: zod.string().min(4, "Informe o lote"),
+  complement: zod.string().min(4, "Informe tipo de armazenamento"),
 });
 export type AddressFormData = zod.infer<typeof addressFormSchema>;
 
@@ -30,7 +30,6 @@ export function FormAddress() {
           <Input
             label="Complemento"
             placeholder="Complemento"
-            isOptional
             {...register("complement")}
             error={errors.complement?.message}
           />

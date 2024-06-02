@@ -24,6 +24,8 @@ function Cadastro() {
   const [isTerra, setIsTerra] = useState(true);
 
   const {
+    user,
+    address,
     setAddress,
   } = useUser();
 
@@ -38,10 +40,16 @@ function Cadastro() {
   const { handleSubmit } = isTerra ? addressForm : addressForm2;
 
   function handleSubmitFormAddress(data: any) {
-    console.log(data);
     setAddress(data);
-    toast.success("Cadastro finalizado com sucesso.");
-    navigate("/");
+
+    const newData = { user, typeAddress: isTerra ? 0 : 1, address };
+    console.log(newData);
+    // backend
+    //try
+    toast.success('Cadastro efetuado com sucesso!');
+    navigate('/')
+    //catc
+    // toast.success('Cadastro efetuado com sucesso!');
   }
 
   return (

@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
@@ -13,11 +12,18 @@ function Cadastro() {
   const navigate = useNavigate();
 
   const {
+    user,
     setUser,
   } = useUser();
 
 
   const userForm = useForm<UserFormData>({
+    defaultValues: {
+      name: user?.name,
+      cpf: user?.cpf,
+      dateBirth: user?.dateBirth,
+      phone: user?.phone
+    },
     resolver: zodResolver(userFormSchema),
   })
 

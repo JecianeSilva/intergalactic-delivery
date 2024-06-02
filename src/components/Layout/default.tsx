@@ -7,7 +7,7 @@ export function Default() {
     <>
       <Header />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

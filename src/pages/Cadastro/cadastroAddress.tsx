@@ -59,7 +59,7 @@ function Cadastro() {
     >
       <ModalAddress title="">
         <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full">
-          <div className="flex justify-between pt-8">
+          <div className="flex justify-between">
             <div>
               <div className="flex gap-2">
                 <MapPinLine size={28} className="text-blue-600 " />

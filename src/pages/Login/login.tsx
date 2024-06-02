@@ -32,7 +32,7 @@ function Login() {
           <hr className="h-px my-8 bg-slate-300 border-0" />
           <div className="text-sm font-medium text-gray-700">
             Não tem cadastro?{' '}
-            <a href="/cadastro" className="text-blue-700 hover:underline dark:text-blue-500"> Crie sua conta</a>
+            <a href="/cadastro-etapa1" className="text-blue-700 hover:underline dark:text-blue-500"> Crie sua conta</a>
           </div>
         </div>
         <div className="flex h-full w-full pl-16">

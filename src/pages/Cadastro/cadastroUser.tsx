@@ -37,19 +37,19 @@ function Cadastro() {
 
   return (
     <form
-      className="flex gap-8 max-w-[1180px] mr-auto w-[90%] mx-auto flex-col"
+      className="flex gap-8 max-w-[1180px] mr-auto w-[90%] mx-auto flex-col max-[415px]:w-full gap-0"
       onSubmit={handleSubmit(handleSubmitFormUser)}
     >
       <ModalAddress title="">
-        <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full">
+        <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full max-[415px]:shadow-none max-[415px]:px-4">
           <div>
             <div className="flex gap-2">
-              <UserCircle size={28} className="text-blue-600 " />
-              <span className="font-bold text-gray-950">
+              <UserCircle size={28} className="text-blue-600" />
+              <span className="font-bold text-md text-gray-950 max-[415px]:text-sm">
                 Cadastro de usuário - Dados Pessoais
               </span>
             </div>
-            <p className="font-sans text-sm text-gray-500 ml-9">
+            <p className="font-sans text-sm text-gray-500 ml-9 max-[415px]:ml-9">
               Por favor, forneça seu dados pessoal.
             </p>
           </div>
@@ -60,12 +60,12 @@ function Cadastro() {
 
       </ModalAddress>
 
-      <div className="flex justify-end w-full mt-8 mb-20">
-        <div className="flex w-[30%] gap-8">
+      <div className="flex justify-end w-full mt-8 mb-20 max-[415px]:mt-4">
+        <div className="flex w-[30%] gap-8 mb-20 max-md:w-[100%] max-[415px]:px-4">
           <Button
             type="submit"
             label="Avançar"
-            className="bg-blue-600 hover:bg-blue-900  max-[1170px]:mx-auto max-[520px]:w-[90%]"
+            className="bg-blue-600 hover:bg-blue-900  max-[1170px]:mx-auto max-md:w-[100%]"
           />
         </div>
       </div>

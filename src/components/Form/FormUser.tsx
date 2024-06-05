@@ -28,7 +28,7 @@ export function FormUser() {
             error={errors.name?.message}
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 max-md:flex-col">
           <Input
             label="CPF"
             placeholder="CPF"

@@ -6,7 +6,7 @@ import { Input } from "../Input/input";
 export const userFormSchema = zod.object({
   name: zod.string().min(3, "Informe seu nome"),
   cpf: zod.string().min(3, "Informe seu cpf"),
-  dateBirth: zod.string().min(1, "Informe sua data de nascimento"),
+  dateBirth: zod.string().date().min(1, "Campo Obrigatorio"),
   phone: zod.string().min(1, "Informe seu número de telefone")
 });
 export type UserFormData = zod.infer<typeof userFormSchema>;

@@ -42,7 +42,7 @@ function Cadastro() {
   function handleSubmitFormAddress(data: any) {
     setAddress(data);
 
-    const newData = { user, typeAddress: isTerra ? 0 : 1, address };
+    const newData = { user, typeAddress: isTerra ? 0 : 1, address: data };
     console.log(newData);
     // backend
     //try
@@ -54,24 +54,24 @@ function Cadastro() {
 
   return (
     <form
-      className="flex gap-8 max-w-[1180px] mr-auto w-[90%] mx-auto flex-col"
+      className="flex gap-8 max-w-[1180px] mr-auto w-[90%] mx-auto flex-col max-[415px]:w-full max-[415px]:gap-0"
       onSubmit={handleSubmit(handleSubmitFormAddress)}
     >
       <ModalAddress title="">
-        <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full">
-          <div className="flex justify-between">
-            <div>
+        <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full max-[415px]:shadow-none max-[415px]:px-4">
+          <div className="flex justify-between max-[600px]:flex-col">
+            <div className="flex flex-col align-start">
               <div className="flex gap-2">
-                <MapPinLine size={28} className="text-blue-600 " />
-                <span className="font-bold text-gray-950">
+                <MapPinLine size={28} className="text-blue-600" />
+                <span className="font-bold text-md text-gray-950 max-[415px]:text-sm">
                   Cadastro de usuário - Dados do endereço
                 </span>
               </div>
               <p className="font-sans text-sm text-gray-500 ml-9">
-                Por favor, informe os dados do seu endereço principal
+                Por favor, forneça seu endereço principal
               </p>
             </div>
-            <div className="flex items-center" onClick={() => setIsTerra(!isTerra)}>
+            <div className="flex items-center ml-4 min-w-[140px] max-[600px]:mt-4  max-[600px]:justify-center" onClick={() => setIsTerra(!isTerra)}>
               <div>
                 <label
                   className="inline-block pr-2"
@@ -97,18 +97,18 @@ function Cadastro() {
         </div>
 
       </ModalAddress>
-      <div className="flex justify-end w-full mt-8 mb-20">
-        <div className="flex w-[40%] gap-8">
+      <div className="flex justify-end w-full mt-8 mb-40 max-md:justify-center">
+        <div className="flex w-[40%] gap-8 max-md:w-full max-md:mx-4 max-[415px]:flex-col">
           <Button
             type="button"
             label="Voltar"
             onClick={() => { navigate('/cadastro-etapa1') }}
-            className="bg-gray-600 hover:bg-blue-900 max-w-content mx-auto max-[380px]:w-[90%]"
+            className="bg-gray-600 hover:bg-blue-900 max-w-content mx-auto max-[400px]:w-full"
           />
           <Button
             type="submit"
             label="Finalizar"
-            className="bg-blue-600 hover:bg-blue-900  max-[1170px]:mx-auto max-[520px]:w-[90%]"
+            className="bg-blue-600 hover:bg-blue-900 max-w-content mx-auto max-[400px]:w-full"
           />
         </div>
       </div>

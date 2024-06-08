@@ -43,7 +43,7 @@ export const userFormSchema = zod.object({
   name: zod
     .string()
     .min(1, 'Campo obrigátorio')
-    .min(3, 'Caracteres minimo 3')
+    .min(3, 'Caracteres mínimo 3')
     .regex(new RegExp(/^[a-zA-Z]+\s+[a-zA-Z]+$/), 'Informe o nome completo'),
   cpf: zod
     .string()

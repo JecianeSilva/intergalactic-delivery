@@ -4,14 +4,37 @@ import { useFormContext } from "react-hook-form";
 import { Input } from "../Input/input";
 
 export const addressFormSchema = zod.object({
-  zipCode: zod.string().min(1, "Informe o cep"),
-  street: zod.string().min(1, "Informe a rua"),
-  numberHouse: zod.string().min(1, "Informe o número da casa"),
-  complement: zod.string().nullable(),
-  district: zod.string().min(1, "Informe o bairro"),
-  city: zod.string().min(1, "Informe a cidade"),
-  country: zod.string().min(1, "Informe o país"),
-  uf: zod.string().min(1, "Informe o estado"),
+  postalCode: zod
+    .string()
+    .min(1, "Campo obrigatório")
+    .min(3, 'Mínimo 3 caracteres'),
+  street: zod.string()
+    .min(1, "Campo obrigatório")
+    .min(3, 'Mínimo 3 caracteres'),
+  numberHouse: zod
+    .number({
+      message: "Campo obrigatório"
+    })
+    .nonnegative("Número minimo permitido: 0"),
+  complement: zod
+    .string()
+    .nullable(),
+  district: zod
+    .string()
+    .min(1, "Campo obrigatório")
+    .min(3, 'Mínimo 3 caracteres'),
+  city: zod
+    .string()
+    .min(1, "Campo obrigatório")
+    .min(3, 'Mínimo 3 caracteres'),
+  country: zod
+    .string()
+    .min(1, "Campo obrigatório")
+    .min(3, 'Mínimo 3 caracteres'),
+  uf: zod
+    .string()
+    .min(1, "Campo obrigatório")
+    .min(2, 'Mínimo 2 caracteres'),
 });
 
 export type AddressFormData = zod.infer<typeof addressFormSchema>;
@@ -25,7 +48,7 @@ export function FormAddress() {
   return (
     <>
       <div className="mt-8 flex flex-col gap-4">
-        <div className="flex gap-3">
+        <div className="flex gap-3 max-md:flex-col">
           <Input
             label="País"
             placeholder="Páis"
@@ -45,13 +68,13 @@ export function FormAddress() {
             error={errors.city?.message}
           />
         </div>
-        <div className="flex gap-3">
-          <div>
+        <div className="flex gap-3  max-md:flex-col">
+          <div className="min-w-[220px]">
             <Input
-              label="CEP"
+              label="CEP(Postal Code)"
               placeholder="CEP"
-              {...register("zipCode")}
-              error={errors.zipCode?.message}
+              {...register("postalCode")}
+              error={errors.postalCode?.message}
             />
           </div>
           <Input
@@ -60,17 +83,20 @@ export function FormAddress() {
             {...register("street")}
             error={errors.street?.message}
           />
-          <div>
+          <div className="min-w-[180px] max-md:w-full">
             <Input
+              type="number"
               label="Nº"
-              placeholder="Número"
-              {...register("numberHouse")}
+              placeholder="Digite o nº da sua casa"
+              {...register("numberHouse", {
+                setValueAs: (value) => value !== '' ? Number(value) : value,
+              })}
               error={errors.numberHouse?.message}
             />
           </div>
         </div>
 
-        <div className="flex gap-3 max-[500px]:flex-col">
+        <div className="flex gap-3 max-md:flex-col">
           <Input
             label="Complemento"
             placeholder="Complemento"

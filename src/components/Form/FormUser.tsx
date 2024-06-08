@@ -5,9 +5,6 @@ import { Input } from "../Input/input";
 import { useEffect } from "react";
 import { formatedCPFInput, formatedPhoneInput } from "../../utils/mask";
 
-const phoneRegex = new RegExp(
-  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
-);
 function isValidCPF(cpf: any) {
   if (typeof cpf !== "string") return false
   cpf = cpf.replace(/[\s.-]*/igm, '')

@@ -5,7 +5,7 @@ import { UserCircle } from "phosphor-react";
 
 import { useUser } from "../../contexts/User/UserContext";
 import { FormUser, UserFormData, userFormSchema } from "../../components/Form/FormUser";
-import { ModalAddress } from "../../components/ModalAddress/ModalAddress";
+import { Modal } from "../../components/Modal/Modal";
 import { Button } from "../../components/Button/Button";
 
 function Cadastro() {
@@ -40,7 +40,7 @@ function Cadastro() {
       className="flex gap-8 max-w-[1180px] mr-auto w-[90%] mx-auto flex-col max-[415px]:w-full gap-0"
       onSubmit={handleSubmit(handleSubmitFormUser)}
     >
-      <ModalAddress title="">
+      <Modal title="">
         <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full max-[415px]:shadow-none max-[415px]:px-4">
           <div>
             <div className="flex gap-2">
@@ -57,8 +57,7 @@ function Cadastro() {
             <FormUser />
           </FormProvider>
         </div>
-
-      </ModalAddress>
+      </Modal>
 
       <div className="flex justify-end w-full mt-8 mb-20 max-[415px]:mt-4">
         <div className="flex w-[30%] gap-8 mb-20 max-md:w-[100%] max-[415px]:px-4">

@@ -14,7 +14,7 @@ import {
   addressFormSchema,
   AddressFormData,
 } from "../../components/Form/FormAdressTerra";
-import { ModalAddress } from "../../components/ModalAddress/ModalAddress";
+import { Modal } from "../../components/Modal/Modal";
 import { Button } from "../../components/Button/Button";
 import { useState } from "react";
 import { MapPinLine } from "phosphor-react";
@@ -57,7 +57,7 @@ function Cadastro() {
       className="flex gap-8 max-w-[1180px] mr-auto w-[90%] mx-auto flex-col max-[415px]:w-full max-[415px]:gap-0"
       onSubmit={handleSubmit(handleSubmitFormAddress)}
     >
-      <ModalAddress title="">
+      <Modal title="">
         <div className="border-gray-50 border-1 shadow-lg rounded-lg px-6 py-8 max-w-content w-full max-[415px]:shadow-none max-[415px]:px-4">
           <div className="flex justify-between max-[600px]:flex-col">
             <div className="flex flex-col align-start">
@@ -96,7 +96,7 @@ function Cadastro() {
           }
         </div>
 
-      </ModalAddress>
+      </Modal>
       <div className="flex justify-end w-full mt-8 mb-40 max-md:justify-center">
         <div className="flex w-[40%] gap-8 max-md:w-full max-md:mx-4 max-[415px]:flex-col">
           <Button

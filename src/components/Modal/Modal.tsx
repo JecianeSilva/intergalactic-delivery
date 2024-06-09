@@ -5,7 +5,7 @@ interface SectionCheckoutProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-export function ModalAddress({
+export function Modal({
   title,
   children,
   ...rest
@@ -15,7 +15,6 @@ export function ModalAddress({
       <h2 className="font-bold text-md text-slate-950 mb-2" >
         {title}
       </h2>
-
       {children}
     </div>
   );

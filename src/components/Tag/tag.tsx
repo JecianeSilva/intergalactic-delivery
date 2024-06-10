@@ -17,12 +17,12 @@ export function Tag({
 
   return (
     <Component
-      className={`rounded-full uppercase font-sans font-bold text-xs py-[0.375rem] px-3 whitespace-nowrap
+      className={`rounded-full uppercase font-bold text-xs py-[0.375rem] px-3 whitespace-nowrap
         ${variant === "outline"
           ? isSelected
-            ? "border border-violet-900 text-violet-600 bg-violet-200"
-            : "border border-blue-500 text-blue-600"
-          : "bg-blue-100 text-blue-600"
+            ? "border border-blue-950 text-white bg-blue-900"
+            : "border border-blue-600 text-blue-600"
+          : "bg-white text-blue-600"
         }
       `}
       {...rest}

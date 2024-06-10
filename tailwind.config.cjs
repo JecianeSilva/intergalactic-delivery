@@ -61,6 +61,9 @@ module.exports = {
           "7xl": "1540px"
         },
       },
+      gridTemplateColumns: {
+        "grid-responsive": "repeat(auto-fit, minmax(250px, 1fr))",
+      },
     },
   },
   plugins: [],

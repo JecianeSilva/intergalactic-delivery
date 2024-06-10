@@ -22,6 +22,7 @@ export const formatPrice = (value: number | undefined) => {
   if (!value) return ''
 
   const valueFormatted = new Intl.NumberFormat("pt-br", {
+    style: 'currency',
     currency: "BRL",
   }).format(value);
 

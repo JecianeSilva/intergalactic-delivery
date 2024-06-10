@@ -27,19 +27,19 @@ function Home() {
 
   return (
     <div className="flex flex-col w-full h-full">
-      <div className="flex justify-between max-w-6xl w-full px-4 mx-auto pt-[80px] max-md:flex-col max-md:gap-8">
-        <div className="flex flex-col mr-8">
-          <h1 className="leading-[3.75rem] font-extrabold text-5xl text-slate-950 mb-4">
+      <div className="flex justify-between max-w-6xl w-full px-4 mx-auto pt-[80px] max-md:flex-col max-md:gap-8 max-md:items-center max-md:pt-[40px]">
+        <div className="flex flex-col mr-8 max-md:mr-0">
+          <h1 className="leading-[3.75rem] font-extrabold text-5xl text-slate-950 mb-4 max-[900px]:text-4xl max-md:text-5xl max-md:text-center max-[600px]:text-3xl">
             Sistema de entrega perfeito para qualquer hora do dia
           </h1>
 
-          <p className="font-sans text-lg text-slate-700 mt-4">
+          <p className="font-sans text-lg text-slate-700 mt-4 max-md:text-center max-[600px]:text-sm">
             Com o Intergalatic Delivery você recebe suas encomendas onde você quiser, de forma rápida e segura.
           </p>
           <ul
             className="text-slate-600 
             grid grid-cols-2 gap-3 mt-12
-            max-[625px]:grid-cols-1"
+            max-[600px]:grid-cols-1"
           >
             {listTopicsHome.map((topic) => (
               <Topic key={topic.id} topic={topic} />
@@ -48,14 +48,14 @@ function Home() {
         </div>
         <img
           src={HeroImg}
-          className="w-[45%] h-auto ml-8"
+          className="w-[45%] h-auto ml-8  max-md:ml-0  max-md:w-[80%]"
           alt=""
         />
       </div>
 
       <div className="flex max-w-6xl w-full px-4 mx-auto pb-[80px] max-md:flex-col max-md:gap-8">
         <div className="flex w-full flex-col justify-between mb-14 max-md:flex-col max-md:items-start">
-          <h2 className="font-extrabold text-2xl mb-8 text-slate-900">
+          <h2 className="font-extrabold text-2xl mb-8 mt-12 text-slate-900">
             Nossos produtos
           </h2>
           <div className="flex w-full items-center gap-2 flex-wrap">

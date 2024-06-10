@@ -31,7 +31,7 @@ export function ProductCard({ product, className, ...rest }: ProductCardProps) {
 
   return (
     <div
-      className={`flex flex-col justify-between w-64 h-[350px] bg-slate-50 rounded-tl-md rounded-tr-[1.75rem] rounded-br-md rounded-bl-[1.75rem] flex flex-col items-center py-6 px-3 ${className}`}
+      className={`flex flex-col justify-between w-64 h-[350px] bg-slate-50 rounded-tl-md rounded-tr-[1.75rem] rounded-br-md rounded-bl-[1.75rem] flex flex-col items-center py-6 px-3 ${className} max-[600px]:w-full`}
       {...rest}
     >
       <header className="mb-4">

@@ -41,19 +41,19 @@ export default function ProductCardItems({ product }: ProductCardOnCartProps) {
 
   return (
     <Dialog.Root>
-      <div className="flex justify-between max-[450px]:flex-col max-[450px]:items-center" >
-        <div className="flex gap-8 max-[450px]:items-center" >
+      <div className="flex justify-between max-[600px]:flex-col" >
+        <div className="flex gap-8 max-[600px]:flex-col max-[600px]:gap-2 max-[600px]:mb-8 max-[600px]:items-center" >
           <img src={product.image} className="h-[70px] w-[70px] bg-center bg-contain shadow-md" alt={product.name} />
-          <div className="flex flex-col gap-2">
-            <p className="font-sans text-base text-brow-600" >
+          <div className="flex flex-col gap-1">
+            <p className="font-bold text-md text-gray-950" >
               {product.name}
             </p>
-            <span className="font-sans text-md font-bold text-brow-500 max-[1170px]:ml-auto max-[1170px]:self-center max-[450px]:ml-0" >
+            <span className="text-md text-gray-600" >
               {formatPrice(product.price)}
             </span>
           </div>
         </div>
-        <div className="flex items-center justify-center" >
+        <div className="flex items-center justify-center max-[600px]:justify-between" >
           <div className={`flex items-center justify-center gap-1`}>
             <button
               type="button"

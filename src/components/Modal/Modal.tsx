@@ -12,7 +12,7 @@ export function Modal({
 }: SectionCheckoutProps) {
   return (
     <div {...rest} >
-      <h2 className="font-bold text-md text-slate-950 mb-2" >
+      <h2 className="font-bold text-lg text-slate-950 mb-4" >
         {title}
       </h2>
       {children}

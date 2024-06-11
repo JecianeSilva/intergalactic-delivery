@@ -1,7 +1,10 @@
 <div align="center">
 	<h2>Desafio Frontend</h2>
 	<p>Projeto desenvolvido para um teste de uma empresa, onde o objetivo  é desenvolver um sistema de delivery entre planetas, que automatize esse processo de entrega de Marte para a Terra e vice-versa. Algumas das funcionalidades desenvolvidas foram as seguintes:
-  </p> 
+  </p> 	
+  <img height="200" src="https://github.com/JecianeSilva/intergalactic-delivery/assets/43557425/b8d2bf47-feca-4e42-ae1e-8510fdf6317b" alt="Print da tela Login"/>
+  <img height="200" src="https://github.com/JecianeSilva/intergalactic-delivery/assets/43557425/a921ce50-05d4-4456-9ceb-537020f49c71" alt="Print da tela 2"/>
+  <img height="400" src="https://github.com/JecianeSilva/intergalactic-delivery/assets/43557425/04b10688-8bfa-4e5b-a273-31c21231d673" alt="Print da tela 1"/>
 </div>
 
 <div>

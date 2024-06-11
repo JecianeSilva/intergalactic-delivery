@@ -25,7 +25,6 @@ function Cadastro() {
 
   const {
     user,
-    address,
     setAddress,
   } = useUser();
 

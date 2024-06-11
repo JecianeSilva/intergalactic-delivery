@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { Minus, MinusCircle, Plus, PlusCircle, Trash, X } from "phosphor-react";
+import { Minus, Plus, Trash, X } from "phosphor-react";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import { useCart } from "../../contexts/Cart/CartContext";

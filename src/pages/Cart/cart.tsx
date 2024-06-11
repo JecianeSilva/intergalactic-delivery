@@ -34,38 +34,35 @@ export default function Card() {
             <Button label="Voltar" type="button" onClick={() => navigate('/')} className="w-[50%] mx-auto mt-8 mb-20" />
           </>
         ) : (
-          <div className="">
+          <>
             <Modal title="">
-              <div
-                className={"w-full overflow-y-scroll"}
-              >
+              <div className={"w-full"}>
                 {cart.map((productInCart) => (
                   <ProductCardItems key={productInCart.id} product={productInCart} />
                 ))}
               </div>
             </Modal>
-            <div className="flex flex-col gap-3 w-full">
-              <span className="font-sans text-sm text-brow-500 flex items-center justify-between">
+            <div className="flex flex-col gap-4 w-full py-2">
+              <span className="text-sm text-gray-950 font-bold flex items-center justify-between">
                 Total de itens
-                <span>R$ {formatPrice(total)}</span>
+                <span className="text-lg text-blue-950">{formatPrice(total)}</span>
               </span>
             </div>
-            <div className="flex bg-red-200 gap-12 mb-20">
+            <div className="flex justify-end gap-12 my-12">
               <Button
                 type="button"
                 label="Voltar"
-                className="w-[40%] max-[600px]:w-[100%]"
+                className="w-[25%] bg-gray-700 max-[600px]:w-[100%]"
                 onClick={() => navigate('/')}
               />
               <Button
                 type="submit"
                 label="Confirmar Pedido"
-                className="w-[60%] max-[600px]:w-[100%]"
+                className="w-[25%] bg-blue-700  max-[600px]:w-[100%]"
               />
             </div>
-          </div>
-        )
-        }
+          </>
+        )}
       </div >
     </form >
   );

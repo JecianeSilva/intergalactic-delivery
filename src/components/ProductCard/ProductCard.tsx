@@ -43,7 +43,7 @@ export function ProductCard({ product, className, ...rest }: ProductCardProps) {
         </p>
       </header>
       <main className="flex flex-col items-center gap-2">
-        <img src={product.image} alt={product.name} className="w-auto h-[150px] max-h-52" />
+        <img src={product.image} alt={product.name} className="h-[150px] w-[150px] bg-no-repeat bg-center bg-contain" />
         <span className="text-slate-950 font-extrabold text-xl leading-[1.3] mr-4">
           {formatPrice(product.price)}
         </span>

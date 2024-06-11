@@ -9,11 +9,15 @@ import { produce } from "immer";
 
 import {
   addProductInCartAction,
+  removeOneProductFromCartAction,
+  resetCartAction,
+  updateQuantityOneProductAction,
 } from "../../reducers/cart/actions";
 
 import {
   cartReducer,
   ProductCartProps,
+  UpdateQuantityProductProps,
 } from "../../reducers/cart/reducer";
 
 
@@ -21,7 +25,10 @@ interface CartContextData {
   cart: ProductCartProps[];
   categoriesProductsSelected: string[];
 
+  onResetCart: () => void;
+  onRemoveProductFromCart: (productId: number) => void;
   addProductInCart: (product: ProductCartProps) => void;
+  onUpdateQuantityProduct: (data: UpdateQuantityProductProps) => void;
   onUpdateCategoriesProductsSelected: (category: string) => void;
 }
 
@@ -50,6 +57,22 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     dispatchCart(addProductInCartAction(product));
   }
 
+  function onResetCart() {
+    dispatchCart(resetCartAction());
+  }
+
+  function onUpdateQuantityProduct(product: UpdateQuantityProductProps) {
+    if (product.quantity <= 0) {
+      return;
+    }
+
+    dispatchCart(updateQuantityOneProductAction(product));
+  }
+
+  function onRemoveProductFromCart(productId: number) {
+    dispatchCart(removeOneProductFromCartAction(productId));
+  }
+
   function onUpdateCategoriesProductsSelected(category: string) {
     const newCategories = produce(categoriesProductsSelected, (draft) => {
       const indexCategory = draft.findIndex(
@@ -72,7 +95,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         cart,
         categoriesProductsSelected,
 
+        onResetCart,
         addProductInCart,
+        onUpdateQuantityProduct,
+        onRemoveProductFromCart,
         onUpdateCategoriesProductsSelected,
       }}
     >

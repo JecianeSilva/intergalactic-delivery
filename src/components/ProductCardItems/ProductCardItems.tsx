@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { Trash, X } from "phosphor-react";
+import { Minus, MinusCircle, Plus, PlusCircle, Trash, X } from "phosphor-react";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import { useCart } from "../../contexts/Cart/CartContext";
@@ -18,7 +18,21 @@ interface ProductCardOnCartProps {
 }
 
 export default function ProductCardItems({ product }: ProductCardOnCartProps) {
-  const { onRemoveProductFromCart } = useCart();
+  const { onRemoveProductFromCart, onUpdateQuantityProduct } = useCart();
+
+  function handleDecreaseQuantity() {
+    onUpdateQuantityProduct({
+      productId: product.id,
+      quantity: product.quantity - 1,
+    });
+  }
+
+  function handleIncreaseQuantity() {
+    onUpdateQuantityProduct({
+      productId: product.id,
+      quantity: product.quantity + 1,
+    });
+  }
 
   function handleRemoveProductFromCart() {
     onRemoveProductFromCart(product.id);
@@ -39,14 +53,43 @@ export default function ProductCardItems({ product }: ProductCardOnCartProps) {
             </span>
           </div>
         </div>
-        <div className="flex gap-2" >
-          <Dialog.Trigger asChild >
-            <button className="h-12 w-12 flex justify-center items-center gap-2 bg-gray-200 rounded-md
+        <div className="flex items-center justify-center" >
+          <div className={`flex items-center justify-center gap-1`}>
+            <button
+              type="button"
+              className="h-10 w-10 flex justify-center items-center rounded-md 
+              text-black 
+              hover:text-white hover:bg-blue-600
+              disabled:text-gray-300 disabled:cursor-not-allowed disabled:hover:bg-white"
+              disabled={product.quantity === 1}
+              onClick={() => handleDecreaseQuantity()}
+            >
+              <Minus size={18} />
+            </button>
+
+            <span className="h-10 border w-10 flex justify-center items-center text-sm leading-[1.3] text-gray-950">
+              {product.quantity}
+            </span>
+
+            <button
+              type="button"
+              className="h-10 w-10 flex justify-center items-center rounded-md
+              text-black 
+              hover:text-white hover:bg-blue-600"
+              onClick={() => handleIncreaseQuantity()}
+            >
+              <Plus size={18} />
+            </button>
+          </div>
+          <div className="flex justify-end w-24 ">
+            <Dialog.Trigger asChild >
+              <button className="h-10 w-10 flex justify-center items-center gap-2 bg-gray-200 rounded-md
               text-gray-950 text-xs uppercase font-semibold
               hover:bg-red-500 hover:text-white" >
-              <Trash size={20} />
-            </button>
-          </Dialog.Trigger>
+                <Trash size={20} />
+              </button>
+            </Dialog.Trigger>
+          </div>
         </div>
       </div>
 
@@ -68,7 +111,7 @@ export default function ProductCardItems({ product }: ProductCardOnCartProps) {
 
           <div className="flex items-center justify-between gap-2 mt-4" >
             <Dialog.Close asChild >
-              <button className="bg-gray-200 px-4 py-2 rounded w-1/2 hover:bg-gray-250 transition-colors" >
+              <button className="bg-gray-200 px-4 py-2 rounded w-1/2 hover:bg-gray-300 transition-colors" >
                 Cancelar
               </button>
             </Dialog.Close>
